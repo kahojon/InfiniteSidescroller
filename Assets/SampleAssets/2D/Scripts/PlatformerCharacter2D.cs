@@ -97,6 +97,12 @@ namespace UnitySampleAssets._2D
             }
         }
 
+		void OnCollisionEnter2D(GameObject other){
+			if (other.tag == "Obstacle") {
+				GetComponent<Rigidbody2D>().velocity = new Vector2(other.GetComponent<Rigidbody2D>().velocity;
+			}
+		}
+
 
         private void Flip()
         {
