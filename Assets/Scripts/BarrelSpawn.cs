@@ -6,12 +6,13 @@ public class BarrelSpawn : MonoBehaviour {
 	public GameObject[] obj;
 
 	void Start(){
-		Spawn ();
+		InvokeRepeating ("Spawn", 1, 3);
+
 	}
 	
 	void Spawn()
 	{
-		Instantiate (obj[0],new Vector3(transform.position.x,transform.position.y),Quaternion.identity);
-		Invoke (Spawn (), 2);
+		Instantiate (obj[Random.Range(0,obj.GetLength(0))],new Vector3(transform.position.x,transform.position.y),Quaternion.identity);
+
 	}
 }
