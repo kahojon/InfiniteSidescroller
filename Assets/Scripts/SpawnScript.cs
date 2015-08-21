@@ -4,17 +4,15 @@ using System.Collections;
 public class SpawnScript : MonoBehaviour {
 
 	public GameObject[] obj;
-	public float spawnMin = 1f;
-	public float spawnMax = 2f;
 
-	// Use this for initialization
-	void Start () {
-		Spawn ();
+
+	void OnTriggerExit2D(Collider2D other){
+		if (other.tag == "Ground")
+			Spawn ();
 	}
 
 	void Spawn()
 	{
-		Instantiate (obj[Random.Range (0,obj.GetLength(0))],transform.position,Quaternion.identity);
-		Invoke ("Spawn", Random.Range (spawnMin,spawnMax));
+		Instantiate (obj[0],new Vector3(transform.position.x,transform.position.y),Quaternion.identity);
 	}
 }

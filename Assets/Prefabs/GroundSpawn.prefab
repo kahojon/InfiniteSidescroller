@@ -86,8 +86,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj:
-  - {fileID: 126628, guid: 05be866aa791345ea81b80ba78afb5b2, type: 2}
-  - {fileID: 112472, guid: eca5552b90e5e4d93ab6fd1c1a3b20e2, type: 2}
   - {fileID: 102648, guid: 822b32c40245c44c98e19253ca7b9cf5, type: 2}
   spawnMin: 1
   spawnMax: 2
@@ -97,7 +95,23 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: obj.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: obj.Array.data[0]
+      value: 
+      objectReference: {fileID: 102648, guid: 822b32c40245c44c98e19253ca7b9cf5, type: 2}
+    - target: {fileID: 0}
+      propertyPath: obj.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: obj.Array.data[2]
+      value: 
+      objectReference: {fileID: 102648, guid: 822b32c40245c44c98e19253ca7b9cf5, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 157182}
