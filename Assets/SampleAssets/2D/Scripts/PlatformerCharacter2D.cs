@@ -13,7 +13,7 @@ namespace UnitySampleAssets._2D
         [Range(0, 1)] [SerializeField] private float crouchSpeed = .36f;
                                                      // Amount of maxSpeed applied to crouching movement. 1 = 100%
 
-        [SerializeField] private bool airControl = false; // Whether or not a player can steer while jumping;
+      //  [SerializeField] private bool airControl = false; // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask whatIsGround; // A mask determining what is ground to the character
 
         private Transform groundCheck; // A position marking where to check if the player is grounded.
@@ -28,8 +28,8 @@ namespace UnitySampleAssets._2D
         private void Awake()
         {
             // Setting up references.
-            groundCheck = transform.Find("GroundCheck");
-            ceilingCheck = transform.Find("CeilingCheck");
+           groundCheck = transform.Find("GroundCheck");
+           ceilingCheck = transform.Find("CeilingCheck");
             anim = GetComponent<Animator>();
         }
 
@@ -38,10 +38,11 @@ namespace UnitySampleAssets._2D
         {
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
             grounded = Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround);
-            anim.SetBool("Ground", grounded);
+            //anim.SetBool("Ground", grounded);
+			print (grounded);
 
             // Set the vertical animation
-            anim.SetFloat("vSpeed", GetComponent<Rigidbody2D>().velocity.y);
+            //anim.SetFloat("vSpeed", GetComponent<Rigidbody2D>().velocity.y);
 
 			if (grounded)
 				doubleJump = false;
@@ -52,19 +53,8 @@ namespace UnitySampleAssets._2D
         {
 
 
-            // If crouching, check to see if the character can stand up
-            if (!crouch && anim.GetBool("Crouch"))
-            {
-                // If the character has a ceiling preventing them from standing up, keep them crouching
-                if (Physics2D.OverlapCircle(ceilingCheck.position, ceilingRadius, whatIsGround))
-                    crouch = true;
-            }
-
-            // Set whether or not the character is crouching in the animator
-            anim.SetBool("Crouch", crouch);
-
             //only control the player if grounded or airControl is turned on
-            if (grounded || airControl)
+            if (grounded)
             {
                 // Reduce the speed if crouching by the crouchSpeed multiplier
                 move = (crouch ? move*crouchSpeed : move);
@@ -88,7 +78,7 @@ namespace UnitySampleAssets._2D
             if ((grounded || !doubleJump) && jump)
             {
                 // Add a vertical force to the player.
-                anim.SetBool("Ground", false);
+                //anim.SetBool("Ground", false);
 				GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x,0);
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
 
@@ -96,12 +86,6 @@ namespace UnitySampleAssets._2D
 					doubleJump = true;
             }
         }
-
-		void OnCollisionEnter2D(GameObject other){
-			if (other.tag == "Obstacle") {
-				GetComponent<Rigidbody2D>().velocity = new Vector2(other.GetComponent<Rigidbody2D>().velocity.x,0);
-			}
-		}
 
 
         private void Flip()

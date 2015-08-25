@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 464634}
   - 212: {fileID: 21297804}
+  - 61: {fileID: 6191898}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Untagged
@@ -23,11 +24,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 25.1029129, y: -1.29999995, z: 0}
+  m_LocalScale: {x: 1.58390534, y: 1.58749926, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6191898
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127222}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 3626fe8e008014f6bbd19bb72937b311, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -.0834670067, y: -.173889041}
+  serializedVersion: 2
+  m_Size: {x: 1.87671137, y: 1.52893353}
 --- !u!212 &21297804
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -65,6 +79,10 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 3626fe8e008014f6bbd19bb72937b311, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 127222}
